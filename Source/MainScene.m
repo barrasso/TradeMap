@@ -29,13 +29,9 @@
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate = self;
     
-    // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+    // Check location manager for iOS 8
+    if ([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
         [locationManager requestWhenInUseAuthorization];
-    }
-    
-    // update location
-    [locationManager startUpdatingLocation];
     
     // init map container
 }
@@ -44,7 +40,18 @@
 
 - (void)getLocation
 {
+    // update location
+    [locationManager startUpdatingLocation];
+    
+    CCLOG(@"START updating location");
+}
 
+- (void)stopUpdates
+{
+    // stop updating user location
+    [locationManager stopUpdatingLocation];
+    
+    CCLOG(@"STOP updating location");
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -57,8 +64,10 @@
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *crnLoc = [locations lastObject];
-    _latitudeLabel.string = [NSString stringWithFormat:@"%.8f",crnLoc.coordinate.latitude];
-    _longitudeLabel.string = [NSString stringWithFormat:@"%.8f",crnLoc.coordinate.longitude];
+    
+    // Update labels
+    _longitudeLabel.string = [NSString stringWithFormat:@"Longitude: %.8f",crnLoc.coordinate.longitude];
+    _latitudeLabel.string = [NSString stringWithFormat:@"Latitude: %.8f",crnLoc.coordinate.latitude];
 }
 
 @end

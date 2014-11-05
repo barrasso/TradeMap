@@ -560,8 +560,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -971,7 +969,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Button 2</string>
+				<string>Button 2 - stopUpdates</string>
 				<key>memberVarAssignmentName</key>
 				<string></string>
 				<key>memberVarAssignmentType</key>
@@ -1031,7 +1029,7 @@
 						<string>Block</string>
 						<key>value</key>
 						<array>
-							<string></string>
+							<string>stopUpdates</string>
 							<integer>1</integer>
 						</array>
 					</dict>
@@ -1076,7 +1074,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Placeholder 2</string>
+							<string>Stop Updates</string>
 							<false/>
 						</array>
 					</dict>
