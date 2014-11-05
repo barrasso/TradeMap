@@ -9,5 +9,26 @@
 #import "MainScene.h"
 
 @implementation MainScene
+{
+    // Map Container node
+    CCNode *_mapContainer;
+}
+
+#pragma mark - Lifecycle
+
+-(void)onEnter
+{
+    [super onEnter];
+    
+    // get user location
+    
+    // init map container
+}
+
+- (void)onExit
+{
+    // deallocate memory
+    [super onExit];
+}
 
 @end
